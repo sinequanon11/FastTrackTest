@@ -11,15 +11,27 @@ public class LeftNav extends Parent {
         PageFactory.initElements(GenWebDrv.getDriver(),this);
     }
 
-    @FindBy(xpath="")
-    private WebElement setup;
+    @FindBy(xpath="//span[text()='Human Resources']")
+    private WebElement humanResource_1;
+
+    @FindBy(xpath="(//span[text()='Setup'])[3]")
+    private WebElement setup_1;
+
+    @FindBy(xpath="(//span[text()='Position Categories'])[1]")
+    private WebElement positionCategory_1;
+
+    @FindBy(xpath="(//span[text()='Attestations'])[1]")
+    private WebElement attestations_1;
 
     WebElement myElement;
 
     public void findAndClick(String strElement){
 
         switch (strElement){
-           // case "setup" : myElement=setup;break;
+            case "humanResource_1" : myElement=humanResource_1;break;
+            case "setup_1" : myElement=setup_1;break;
+            case "positionCategory_1" : myElement=positionCategory_1;break;
+            case "attestations_1" : myElement=attestations_1;break;
         }
         clickFunction(myElement);
     }
