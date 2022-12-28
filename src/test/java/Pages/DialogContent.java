@@ -58,11 +58,29 @@ public class DialogContent extends Parent{
     private WebElement editButton;                                              // Ortak
 
 
+    @FindBy(xpath = "//div[@id='mat-select-value-7']//span")
+    private WebElement stageDocTypes;
 
+    @FindBy(xpath = "//span[normalize-space()='Student Registration']")
+    private WebElement studentRegist;
 
+    @FindBy(xpath = "//span[contains(text(),'Save')]")
+    private WebElement saveDocTypes;
 
+    @FindBy(xpath = "//span[normalize-space()='Employment']")
+    private WebElement employment;
 
+    @FindBy(xpath = "//*[@formcontrolname='attachmentStages']")
+    private WebElement stageInput;
 
+    @FindBy(xpath = "(//*[@role='option'])[3]")
+    private WebElement stageTwo;
+
+    @FindBy(xpath = "//div[@id='mat-select-value-9']")
+    private WebElement fieldTypeText;
+
+    @FindBy(css="svg[role='img'][data-icon='plus']")
+    private WebElement fieldsAddButton;
 
     WebElement myElement;
 
@@ -90,6 +108,15 @@ public class DialogContent extends Parent{
             case "deleteDialogBtn": myElement=deleteDialogBtn;break;
             case "saveButton": myElement=saveButton;break;
             case "editButton": myElement=editButton;break;
+            case "stageDocTypes" : myElement=stageDocTypes;break;
+            case "studentRegist" : myElement=studentRegist;break;
+            case "saveDocTypes" : myElement=saveDocTypes;break;
+            case "employment" : myElement=employment;break;
+            case "stageInput" :myElement=stageInput; break;
+            case "stageTwo" : myElement =stageTwo; break;
+            case "fieldTypeText" : myElement =fieldTypeText; break;
+            case "fieldsAddButton" : myElement =fieldsAddButton; break;
+
         }
         clickFunction(myElement);
     }
