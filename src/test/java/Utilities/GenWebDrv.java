@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class GenWebDrv {
 
-    private static ThreadLocal<WebDriver> theradDriver = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
     private static ThreadLocal<String> threadBrowserName = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
@@ -23,22 +23,22 @@ public class GenWebDrv {
             threadBrowserName.set("chrome");
 
 
-        if (theradDriver.get() == null) {
+        if (threadDriver.get() == null) {
 
             switch (threadBrowserName.get()) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    theradDriver.set(new ChromeDriver());
+                    threadDriver.set(new ChromeDriver());
                     break;
 
 
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    theradDriver.set(new FirefoxDriver());
+                    threadDriver.set(new FirefoxDriver());
                     break;
             }
         }
-        return theradDriver.get();
+        return threadDriver.get();
     }
     public static void quitDriver(){
         try {
@@ -46,10 +46,10 @@ public class GenWebDrv {
         }catch (InterruptedException e){
             throw new RuntimeException(e);
         }
-        if (theradDriver.get() != null){
-            theradDriver.get().quit();
-            WebDriver driver= theradDriver.get(); driver = null;
-            theradDriver.set(driver);
+        if (threadDriver.get() != null){
+            threadDriver.get().quit();
+            WebDriver driver= threadDriver.get(); driver = null;
+            threadDriver.set(driver);
         }
 
     }

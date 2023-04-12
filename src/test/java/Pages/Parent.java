@@ -11,8 +11,7 @@ import java.time.Duration;
 
 public class Parent {
 
-    WebDriverWait wait = new WebDriverWait(GenWebDrv.getDriver(), Duration.ofSeconds(30));
-
+    WebDriverWait wait=new WebDriverWait(GenWebDrv.getDriver(), Duration.ofSeconds(30));
     public void sendKeysFunction(WebElement element, String value) {
 
         waitUntilVisiable(element);
@@ -26,7 +25,6 @@ public class Parent {
         waitUntilClickable(element);
         scrollToElement(element);
         element.click();
-
     }
 
     public void waitUntilVisiable(WebElement element) {
@@ -39,21 +37,19 @@ public class Parent {
     }
 
     public void waitUntilClickable(WebElement element) {
-//        Duration dr=Duration.ofSeconds(20);
-//        GenWebDr.getDriver().manage().timeouts().implicitlyWait(dr);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void verifyContainsTextFunc(WebElement element, String value) {
 
-        // waitUntilVisiable(element);
         wait.until(ExpectedConditions.textToBePresentInElement(element, value));
-        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()), "The text you searched could not be find");
+        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()),
+                "The text you searched could not be found");
         new Actions(GenWebDrv.getDriver()).sendKeys(Keys.ESCAPE).perform();
     }
 
     public void waitUntilLoading() {
         wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
-        // progressbar ın çocukları
-    }
+
+            }
 }

@@ -16,18 +16,18 @@ public class Hook {
     }
 
     @After
-    public void after(Scenario scenrio){
+    public void after(Scenario scenario){
         System.out.println("Scenario Ended");
 
         LocalDateTime time = LocalDateTime.now();
         DateTimeFormatter tf = DateTimeFormatter.ofPattern("dd_MM_YYHHmmss");
 
 
-        if (scenrio.isFailed())
+        if (scenario.isFailed())
         {
             //Extend report
             final byte[] byteState=((TakesScreenshot) GenWebDrv.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenrio.attach(byteState, "image/png", "screenshot name");
+            scenario.attach(byteState, "image/png", "screenshot name");
         }
         GenWebDrv.quitDriver();
     }
