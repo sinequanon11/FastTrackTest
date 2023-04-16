@@ -30,7 +30,7 @@ public class _1_RegistrationSteps {
     @And("Enter Email and Click Submit Button")
     public void enterEmailAndClickSubmitButton() {
 
-        reg.findAndSend( "enteremail", "hebal9272455@fitzola.com");
+        reg.findAndSend( "enteremail", "hebal901888@fitzola.com");
         reg.findAndClick( "submitbutton" );
     }
 

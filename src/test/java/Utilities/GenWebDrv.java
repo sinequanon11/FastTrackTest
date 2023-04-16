@@ -31,7 +31,6 @@ public class GenWebDrv {
                     threadDriver.set(new ChromeDriver());
                     break;
 
-
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     threadDriver.set(new FirefoxDriver());

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DepositPage extends Parent {
+public class _1_RegistrationPage extends Parent {
 
-    public DepositPage() {
+    public _1_RegistrationPage() {
 
         PageFactory.initElements( GenWebDrv.getDriver(), this );
     }
@@ -48,13 +48,21 @@ public class DepositPage extends Parent {
     public void findAndSend(String strElement, String value) {
 
         switch (strElement) {
-            case "enteremail": myElement = enteremail; break;
-            case "enterCountryCode": myElement = enterCountryCode; break;
-            case "enterPhoneNumber": myElement = enterPhoneNumber; break;
-            case "enterFullName": myElement = enterFullName; break;
-            case "enterPassword": myElement = enterPassword; break;
-
-
+            case "enteremail":
+                myElement = enteremail;
+                break;
+            case "enterCountryCode":
+                myElement = enterCountryCode;
+                break;
+            case "enterPhoneNumber":
+                myElement = enterPhoneNumber;
+                break;
+            case "enterFullName":
+                myElement = enterFullName;
+                break;
+            case "enterPassword":
+                myElement = enterPassword;
+                break;
         }
 
         sendKeysFunction( myElement, value );
@@ -62,25 +70,33 @@ public class DepositPage extends Parent {
 
     public void findAndClick(String strElement) {
 
-        switch (strElement){
-            case "newuserbutton": myElement = newuserbutton; break;
-            case "igetitbutton": myElement = igetitbutton; break;
-            case "submitbutton": myElement = submitbutton; break;
-            case "loginButton": myElement = loginButton; break;
-
-                }
-                clickFunction( myElement );
-            }
-
-    public void findAndContainsText(String strlement, String text){
-
-        switch (strlement)
-        {
-            case "registerComplete" : myElement=registerComplete;break;
-
+        switch (strElement) {
+            case "newuserbutton":
+                myElement = newuserbutton;
+                break;
+            case "igetitbutton":
+                myElement = igetitbutton;
+                break;
+            case "submitbutton":
+                myElement = submitbutton;
+                break;
+            case "loginButton":
+                myElement = loginButton;
+                break;
         }
 
-        verifyContainsTextFunction(myElement, text);
+        clickFunction( myElement );
     }
 
+    public void findAndContainsText(String strelement, String text) {
+
+        switch (strelement) {
+            case "registerComplete":
+                myElement = registerComplete;
+                break;
         }
+
+        verifyContainsTextFunction( myElement, text );
+    }
+
+}

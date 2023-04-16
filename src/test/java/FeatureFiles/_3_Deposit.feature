@@ -4,13 +4,9 @@ Feature: Deposit Functionality
 
     Given User is on the Home Page
     When Navigate to Returning User Page
-      | returninguser |
-    And Enter Email
-      | enteremail | hebal92724@fitzola.com |
-    And Click the Submit Button
-      | submitbutton |
+    And Enter Email and Click Submit Button
 
-  Scenario: Deposit and Check
+  Scenario: Deposit and Check Balance
 
     When Click Money Button
       | moneybutton|
@@ -24,5 +20,5 @@ Feature: Deposit Functionality
     And Deposit Approved
       | depositapproved |
 
-    Then Deposit Successful Should be Displayed
+    Then Deposit Successful and Check Balance Matches
 

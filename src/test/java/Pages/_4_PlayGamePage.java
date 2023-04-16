@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class _4_LotteryTicketPage extends Parent {
+public class _4_PlayGamePage extends Parent {
 
-    public _4_LotteryTicketPage() {
+    public _4_PlayGamePage() {
 
         PageFactory.initElements( GenWebDrv.getDriver(), this );
     }
@@ -16,11 +16,11 @@ public class _4_LotteryTicketPage extends Parent {
     @FindBy(xpath = "//div[@id='navigation']")
     private WebElement hambmenu;
 
-    @FindBy(xpath = "//a[normalize-space()='Lottery']")
-    private WebElement lottery;
+    @FindBy(xpath = "//a[contains(text(),'Casino')]")
+    private WebElement casino;
 
-    @FindBy(xpath = "//button[normalize-space()='Buy tickets']")
-    private WebElement buytickets;
+    @FindBy(xpath = "(//div[@class='option']//img)[2]")
+    private WebElement playgame;
 
 
     WebElement myElement;
@@ -31,19 +31,19 @@ public class _4_LotteryTicketPage extends Parent {
             case "hambmenu":
                 myElement = hambmenu;
                 break;
-            case "lottery":
-                myElement = lottery;
+            case "casino":
+                myElement = casino;
                 break;
-            case "buytickets":
-                myElement = buytickets;
+            case "playgame":
+                myElement = playgame;
                 break;
         }
         clickFunction( myElement );
     }
 
     public void balanceUpdated(String amount1, String amount2) {
-
         Assert.assertNotEquals( amount1, amount2, "The balance has not been updated" );
     }
-
 }
+
+

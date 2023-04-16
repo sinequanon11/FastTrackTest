@@ -13,17 +13,16 @@ import org.testng.annotations.AfterClass;
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
 )
-public class JavaRunnerReport extends AbstractTestNGCucumberTests {
+public class RunnerReport extends AbstractTestNGCucumberTests {
 
 
     @AfterClass
     public static void writeExtentReport() {
         ExtentService.getInstance().setSystemInfo("Windows User Name", System.getProperty("user.name"));
         ExtentService.getInstance().setSystemInfo("Time Zone", System.getProperty("user.timezone"));
-        ExtentService.getInstance().setSystemInfo("User Name", "Campus Project");
-        ExtentService.getInstance().setSystemInfo("Application Name", "Campus");
+        ExtentService.getInstance().setSystemInfo("User Name", "Fast Track");
+        ExtentService.getInstance().setSystemInfo("Application Name", "Fast Track");
         ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name"));
-        ExtentService.getInstance().setSystemInfo("Department", "QA");
 
     }
 

@@ -4,10 +4,11 @@ import Utilities.GenWebDrv;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
-public class PlayGamePage extends Parent {
+public class _3_DepositPage extends Parent {
 
-    public PlayGamePage() {
+    public _3_DepositPage() {
 
         PageFactory.initElements( GenWebDrv.getDriver(), this );
     }
@@ -18,7 +19,7 @@ public class PlayGamePage extends Parent {
     @FindBy(xpath = "//button[normalize-space()='Direct Bank']")
     private WebElement directbank;
 
-    @FindBy(xpath = "//div[@class='buttons']//div[1]//button[1]")
+    @FindBy(xpath = "//button[text()='€100']")
     private WebElement selectamount;
 
     @FindBy(xpath = "//button[normalize-space()='Deposit Approved']")
@@ -31,7 +32,7 @@ public class PlayGamePage extends Parent {
     private WebElement okbutton;
 
     @FindBy(xpath = "//button[@class='button money']")
-    private WebElement amount;
+    private WebElement currentamount;
 
 
     WebElement myElement;
@@ -54,8 +55,6 @@ public class PlayGamePage extends Parent {
             case "okbutton":
                 myElement = okbutton;
                 break;
-
-
         }
         clickFunction( myElement );
     }
@@ -66,12 +65,17 @@ public class PlayGamePage extends Parent {
             case "depositsuccessful":
                 myElement = depositsuccessful;
                 break;
-            case "amount":
-                myElement = amount;
+            case "currentamount":
+                myElement = currentamount;
                 break;
-
         }
         verifyContainsTextFunction( myElement, text );
+    }
+
+    public void checkAmountsMatch(WebElement amount1, WebElement amount2) {
+
+        Assert.assertTrue( amount1.getText().contains( amount2.getText() ) ,
+                "The amount deposited does not match current amount");
     }
 
 }

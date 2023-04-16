@@ -1,25 +1,21 @@
-Feature: Play Game Functionality
+Feature: Buy Lottery Ticket Functionality
 
   Background:
 
     Given User is on the Home Page
     When Navigate to Returning User Page
-      | returninguser |
-    And Enter Email
-      | enteremail | hebal92724@fitzola.com |
-    And Click the Submit Button
-      | submitbutton |
+    And Enter Email and Click Submit Button
 
-  Scenario: Play Game and Check Balance
+  Scenario: Buy a Lottery Ticket and Check Balance
 
-    When Click Menu
+    When Click Menu and Select Lottery
       | hambmenu |
-      | casino   |
+      | lottery  |
 
-    And Get the Amount
+    And Get the Current Amount
 
-    And Play Game
-    #  | playgame |
+    And Buy a Lottery Ticket
+      | buytickets |
 
-    Then Play Game and Balance Should be Updated
+    Then Buy a Lottery Ticket and Balance Should be Updated
 

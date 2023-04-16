@@ -4,20 +4,17 @@ Feature: Play Game Functionality
 
     Given User is on the Home Page
     When Navigate to Returning User Page
-      | returninguser |
-    And Enter Email
-      | enteremail | hebal92724@fitzola.com |
-    And Click the Submit Button
-      | submitbutton |
+    And Enter Email and Click Submit Button
 
   Scenario: Play Game and Check Balance
 
-    When Click Menu
+    When Click Menu and Select Casino
       | hambmenu |
       | casino   |
 
-    And Play Game
-    #  | playgame |
+    And Get the Amount
 
-    Then Play Game Balance Should be Displayed
+    And Play Game
+
+    Then Play Game and Balance Should be Updated
 

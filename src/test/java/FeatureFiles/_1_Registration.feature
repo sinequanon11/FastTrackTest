@@ -8,11 +8,7 @@ Feature: Register on the Casino as New User
       | newuserbutton |
       | igetitbutton  |
 
-    And Enter Valid Email
-      | enteremail | hebal92724@fitzola.com |
-
-    And Click the Submit Button
-      | submitbutton |
+    And Enter Email and Click Submit Button
 
     And Enter Country Code and Phone Number
       | enterCountryCode | +90 |
@@ -22,13 +18,13 @@ Feature: Register on the Casino as New User
       | submitbutton |
 
     And Enter Full Name
-      | enterFullName | Michael Cage |
+      | enterFullName | Michael Case |
 
     And Click the Submit Button
       | submitbutton |
 
     And Enter Password
-      | enterPassword | AaBb4321|
+      | enterPassword | AaBb43201|
 
     And Click the Submit Button
       | submitbutton |
